@@ -1,0 +1,13 @@
+<h1>商品</h1>
+
+<% @products.each do |e| %>
+  <p>
+      <%= e.name %>
+      <%= e.price %>円
+      <%= link_to 'カートに入れる', cart_items_path(product_id: e.id), method: :post %>
+      <%= link_to 'カートから削除', cart_item_path(e), method: :delete %>
+  </p>
+  
+<% end %>
+<%= link_to 'カート', cart_path(current_cart) %>
+

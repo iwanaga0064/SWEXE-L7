@@ -1,0 +1,26 @@
+<h1>商品登録</h1>
+
+<% if @product.errors.present? %>
+<font color="red">
+    <h3>エラーがあります</h3>
+    <ul>
+        <% @product.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+    </ul>
+    </font>
+<% end %>
+
+<%= form_for @product, url: {action: :create} do |f| %>
+   <p>  
+      <%= f.label :name, '商品名' %>
+      <%= f.text_field :name %>
+   </p>
+   <p>
+      <%= f.label :price, '値段' %>
+      <%= f.text_field :price %>
+   </p>
+   <p>
+      <%= f.submit '登録' %>
+   </p>
+<% end %>
